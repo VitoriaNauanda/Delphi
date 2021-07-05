@@ -1,0 +1,40 @@
+unit unitDMCalendario;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DB, IBX.IBCustomDataSet, IBX.IBTable,
+  IBX.IBDatabase;
+
+type
+  TDM = class(TDataModule)
+    IBDatabase1: TIBDatabase;
+    IBTransaction1: TIBTransaction;
+    IBTable1: TIBTable;
+    DataSource1: TDataSource;
+    IBTable1CODIGO_FERIADO: TIntegerField;
+    IBTable1NOME_FERIADO: TIBStringField;
+    IBTable1DATA: TDateField;
+    IBTable1CODIGO_MUNICIPIO: TIntegerField;
+    IBTable1TIPO: TIBStringField;
+    IBTable1DIA_MES: TIBStringField;
+    IBTable1TIPO_DATA: TIBStringField;
+    IBTable1TIPO_HORARIO: TIBStringField;
+    IBTable1HORA_INICIO: TIBStringField;
+    IBTable1HORA_FIM: TIBStringField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DM: TDM;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

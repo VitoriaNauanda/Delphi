@@ -1,0 +1,155 @@
+object DM: TDM
+  OldCreateOrder = False
+  Height = 294
+  Width = 292
+  object IBDatabase1: TIBDatabase
+    Connected = True
+    DatabaseName = 'LOCALHOST/3050:C:\Banco\MAXIMA\CALENDARIO_DB.FDB'
+    Params.Strings = (
+      'user_name=SYSDBA'
+      'password=masterkey'
+      'lc_ctype=WIN1252')
+    LoginPrompt = False
+    DefaultTransaction = IBTransaction1
+    ServerType = 'IBServer'
+    Left = 32
+    Top = 16
+  end
+  object IBTransaction1: TIBTransaction
+    Active = True
+    DefaultDatabase = IBDatabase1
+    Left = 32
+    Top = 80
+  end
+  object IBTable1: TIBTable
+    Database = IBDatabase1
+    Transaction = IBTransaction1
+    Active = True
+    BufferChunks = 1000
+    CachedUpdates = False
+    FieldDefs = <
+      item
+        Name = 'CODIGO_FERIADO'
+        Attributes = [faRequired]
+        DataType = ftInteger
+      end
+      item
+        Name = 'NOME_FERIADO'
+        Attributes = [faRequired]
+        DataType = ftWideString
+        Size = 40
+      end
+      item
+        Name = 'DATA'
+        DataType = ftDate
+      end
+      item
+        Name = 'CODIGO_MUNICIPIO'
+        DataType = ftInteger
+      end
+      item
+        Name = 'TIPO'
+        Attributes = [faRequired, faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'DIA_MES'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 5
+      end
+      item
+        Name = 'TIPO_DATA'
+        Attributes = [faRequired, faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'TIPO_HORARIO'
+        Attributes = [faRequired, faFixed]
+        DataType = ftWideString
+        Size = 1
+      end
+      item
+        Name = 'HORA_INICIO'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 5
+      end
+      item
+        Name = 'HORA_FIM'
+        Attributes = [faFixed]
+        DataType = ftWideString
+        Size = 5
+      end>
+    IndexDefs = <
+      item
+        Name = 'PK_TAB_FERIADO'
+        Fields = 'CODIGO_FERIADO'
+        Options = [ixUnique]
+      end
+      item
+        Name = 'FK_TAB_FERIADO_1'
+        Fields = 'CODIGO_MUNICIPIO'
+      end>
+    StoreDefs = True
+    TableName = 'TAB_FERIADO'
+    UniDirectional = False
+    Left = 32
+    Top = 144
+    object IBTable1CODIGO_FERIADO: TIntegerField
+      FieldName = 'CODIGO_FERIADO'
+      Required = True
+    end
+    object IBTable1NOME_FERIADO: TIBStringField
+      FieldName = 'NOME_FERIADO'
+      Required = True
+      Size = 40
+    end
+    object IBTable1DATA: TDateField
+      FieldName = 'DATA'
+    end
+    object IBTable1CODIGO_MUNICIPIO: TIntegerField
+      FieldName = 'CODIGO_MUNICIPIO'
+    end
+    object IBTable1TIPO: TIBStringField
+      FieldName = 'TIPO'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
+    object IBTable1DIA_MES: TIBStringField
+      FieldName = 'DIA_MES'
+      FixedChar = True
+      Size = 5
+    end
+    object IBTable1TIPO_DATA: TIBStringField
+      FieldName = 'TIPO_DATA'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
+    object IBTable1TIPO_HORARIO: TIBStringField
+      FieldName = 'TIPO_HORARIO'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
+    object IBTable1HORA_INICIO: TIBStringField
+      FieldName = 'HORA_INICIO'
+      FixedChar = True
+      Size = 5
+    end
+    object IBTable1HORA_FIM: TIBStringField
+      FieldName = 'HORA_FIM'
+      FixedChar = True
+      Size = 5
+    end
+  end
+  object DataSource1: TDataSource
+    DataSet = IBTable1
+    Left = 32
+    Top = 200
+  end
+end

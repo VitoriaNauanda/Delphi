@@ -1,0 +1,249 @@
+unit unitPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.DBCtrls, Vcl.Mask,
+  Vcl.ExtCtrls, Vcl.Buttons, Data.DB, Vcl.Grids, Vcl.DBGrids;
+
+type
+  TForm4 = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Label1: TLabel;
+    lb_Municipio: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    BitBtn1: TBitBtn;
+    Panel3: TPanel;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    DBGrid1: TDBGrid;
+    Label2: TLabel;
+    cod_feriado: TDBEdit;
+    cod_Municipio: TDBEdit;
+    nome_feriado: TDBEdit;
+    data: TDBEdit;
+    tipo_data: TDBComboBox;
+    tipo_feriado: TDBComboBox;
+    tipo_horario: TDBComboBox;
+    horario_inicio: TDBEdit;
+    horario_fim: TDBEdit;
+    dia_Mes: TDBEdit;
+    procedure tipo_FeriadoChange(Sender: TObject);
+    procedure tipo_DataChange(Sender: TObject);
+    procedure tipo_horarioChange(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form4: TForm4;
+
+implementation
+
+{$R *.dfm}
+
+uses unitDMCalendario, unitValidarCampos;
+
+
+procedure TForm4.BitBtn2Click(Sender: TObject);
+begin
+  pcrValidarCamposObrigatorios(Form4);
+end;
+
+procedure TForm4.tipo_DataChange(Sender: TObject);
+begin
+  case tipo_Data.ItemIndex of
+    0:
+    if tipo_data.ItemIndex = 1 then
+     begin
+       dia_Mes.Clear;
+       dia_Mes.Enabled := false;
+     end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//----------------------------
+	1:
+
+
+    dia_Mes.Enabled := true;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+  end;
+end;
+
+procedure TForm4.tipo_FeriadoChange(Sender: TObject);
+begin
+case tipo_Feriado.ItemIndex of
+
+	0:
+
+    cod_Municipio.Enabled := true;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//----------------------------
+	1:
+
+
+
+  if tipo_feriado.ItemIndex = 1 then
+     begin
+       cod_Municipio.Clear;
+       cod_Municipio.Enabled := false;
+     end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	2:
+
+    if tipo_feriado.ItemIndex = 2  then
+     begin
+       cod_Municipio.Clear;
+       cod_Municipio.Enabled := false;
+     end;
+
+
+
+
+
+
+
+
+
+//---------------
+//---------------
+//--------------
+//---------------
+//------------
+end;
+end;
+
+procedure TForm4.tipo_horarioChange(Sender: TObject);
+begin
+case tipo_horario.ItemIndex of
+    0:
+      if tipo_horario.ItemIndex = 0 then
+         begin
+            horario_inicio.Enabled := false;
+            horario_fim.Enabled := false;
+            horario_inicio.Clear;
+            horario_fim.Clear;
+         end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//----------------------------
+	1:
+
+
+    if tipo_horario.ItemIndex = 1 then
+         begin
+            horario_inicio.Enabled := true;
+            horario_fim.Enabled := true;
+         end;
+
+
+
+
+
+
+
+
+
+
+
+
+end;
+end;
+
+end.
+
+
+
